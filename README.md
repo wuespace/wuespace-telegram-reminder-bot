@@ -23,6 +23,12 @@ Your bot is now running and ready to configure.
 
 The bot is now active and will send reminders as configured in the `index.js` file.
 
+## Updating reminders
+
+You can set up the reminders in the `reminders.js` file. It consists of an array of objects that each contain a `cron` field (the CRON expression) and a `message` field (the message that gets sent on the CRON schedule).
+
+Update the file (you can use [the web tool CronTab](https://crontab.guru/) to build your CRON expression) and set the message that should get sent. After that, just run `npm run deploy:restart` and the new reminder gets used.
+
 ## Development Environment
 
 Essentially the same as the deployment workflow (clone the repo, install dependencies with `npm ci`, create the `.env` and insert the `TELEGRAM_TOKEN`). But instead of running `npm run deploy`, use `npm start` during development for easier debugging capabilities.
