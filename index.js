@@ -13,7 +13,7 @@ if (!token)
 
 const bot = new TelegramBot(token, { polling: true });
 
-bot.onText(/^\/start$/, async (message) => {
+bot.onText(/^\/start/, async (message) => {
 	await bot.sendMessage(
 		message.chat.id,
 		`This is an internal use only bot. Please ask an admin to configure the bot to use \`CHAT_ID=${message.chat.id}\`.`,
