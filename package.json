@@ -1,6 +1,6 @@
 {
 	"name": "wuespace-telegram-reminder",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "A Telegram bot for sending reminders in group channels",
 	"main": "index.js",
 	"type": "module",
