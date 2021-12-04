@@ -1,4 +1,5 @@
 import TelegramBot from 'node-telegram-bot-api';
+import { reminders } from './reminders.js';
 import cron from 'node-cron';
 import env from 'dotenv';
 const config = env.config();
@@ -27,36 +28,13 @@ bot.onText(/^\/start/, async (message) => {
 if (chatId) {
 	console.log('CHAT_ID found. Chat bot is working now.');
 
-	cron.schedule('30 18 * * 1', async () => {
-		await bot.sendMessage(chatId, '🛎 PR-Meeting / Co-Working in 30 Minuten!', {
-			parse_mode: 'Markdown',
-		});
-	});
-
-	cron.schedule('0 19 * * 1', async () => {
-		await bot.sendMessage(chatId, '🛎 PR-Meeting / Co-Working jetzt!', {
-			parse_mode: 'Markdown',
-		});
-	});
-
-	cron.schedule('30 14 * * 5', async () => {
-		await bot.sendMessage(
-			chatId,
-			'⌚ Bitte die Weekly Reflection ausfüllen.\n\nhttps://wuespace.koan.co/team/19733eca-8dff-4a87-8a3b-b8fbfdf5964e/nu/reflections',
-			{
+	reminders.forEach((reminder, index) => {
+		console.log(`Scheduling reminder #${index} with CRON "${reminder.cron}".`);
+		cron.schedule(reminder.cron, async () => {
+			await bot.sendMessage(chatId, reminder.message, {
 				parse_mode: 'Markdown',
-			}
-		);
-	});
-
-	cron.schedule('30 16 * * 0', async () => {
-		await bot.sendMessage(
-			chatId,
-			'⏰ Letzte Gelegenheit der Woche, die Weekly Reflection auszufüllen!\n\nhttps://wuespace.koan.co/team/19733eca-8dff-4a87-8a3b-b8fbfdf5964e/nu/reflections',
-			{
-				parse_mode: 'Markdown',
-			}
-		);
+			});
+		});
 	});
 }
 
