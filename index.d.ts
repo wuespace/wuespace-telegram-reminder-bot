@@ -15,4 +15,8 @@ declare interface Reminder {
 	 * {@link cron}.
 	 */
 	message: string;
+	/**
+	 * The chat IDs to which the reminder should get sent to.
+	 */
+	chatIds: string[];
 }

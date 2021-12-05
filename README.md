@@ -17,15 +17,15 @@ Your bot is now running and ready to configure.
 ## Configuring the bot
 
 1. Add the bot to the desired group channel.
-2. Run `/start` on the bot (in group channels, use `/start@bot_username`). The bot tells you to insert a `CHAT_ID` into the `.env` file.
-3. Insert the `CHAT_ID` into the `.env` file.
+2. Run `/start` on the bot (in group channels, use `/start@bot_username`). The bot tells you your chat's ID.
+3. Insert the chat id as `PR_CHAT_ID` into the `.env` file.
 4. Run `npm run deploy:restart` to restart the bot with the chat ID enabled.
 
-The bot is now active and will send reminders as configured in the `index.js` file.
+The bot is now active and will send reminders as configured in the `reminders.js` file.
 
 ## Updating reminders
 
-You can set up the reminders in the `reminders.js` file. It consists of an array of objects that each contain a `cron` field (the CRON expression) and a `message` field (the message that gets sent on the CRON schedule).
+You can set up the reminders in the `reminders.js` file. It consists of an array of objects that each contain a `cron` field (the CRON expression) and a `message` field (the message that gets sent on the CRON schedule) as well as an array of the chat IDs the reminder gets sent to.
 
 Update the file (you can use [the web tool CronTab](https://crontab.guru/) to build your CRON expression) and set the message that should get sent. After that, just run `npm run deploy:restart` and the new reminder gets used.
 

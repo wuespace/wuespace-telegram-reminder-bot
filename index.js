@@ -5,7 +5,6 @@ import env from 'dotenv';
 const config = env.config();
 
 const token = config.parsed?.TELEGRAM_TOKEN;
-const chatId = config.parsed?.CHAT_ID;
 
 if (!token)
 	throw new Error(
@@ -17,7 +16,7 @@ const bot = new TelegramBot(token, { polling: true });
 bot.onText(/^\/start/, async (message) => {
 	await bot.sendMessage(
 		message.chat.id,
-		`This is an internal use only bot. Please ask an admin to configure the bot to use \`CHAT_ID=${message.chat.id}\`.`,
+		`This is an internal use only bot. Please ask an admin to configure the bot to use the chat ID \`${message.chat.id}\` for reminders in this group.`,
 		{
 			parse_mode: 'Markdown',
 			reply_to_message_id: message.message_id,
@@ -25,30 +24,27 @@ bot.onText(/^\/start/, async (message) => {
 	);
 });
 
-if (chatId) {
+reminders.forEach((reminder, index) => {
 	console.log(
 		new Date().toISOString(),
-		'CHAT_ID found. Chat bot is working now.'
+		`Scheduling reminder #${index} with CRON "${reminder.cron}".`
 	);
-
-	reminders.forEach((reminder, index) => {
+	cron.schedule(reminder.cron, async () => {
 		console.log(
 			new Date().toISOString(),
-			`Scheduling reminder #${index} with CRON "${reminder.cron}".`
+			'Sending message to',
+			JSON.stringify(reminder.chatIds),
+			`based on CRON #${index} (${reminder.cron}):`,
+			JSON.stringify(reminder.message)
 		);
-		cron.schedule(reminder.cron, async () => {
-			console.log(
-				new Date().toISOString(),
-				'Sending message to',
-				chatId,
-				`based on CRON #${index} (${reminder.cron}):`,
-				JSON.stringify(reminder.message)
-			);
-			await bot.sendMessage(chatId, reminder.message, {
-				parse_mode: 'Markdown',
-			});
-		});
+		await Promise.all(
+			reminder.chatIds.map((chatId) =>
+				bot.sendMessage(chatId, reminder.message, {
+					parse_mode: 'Markdown',
+				})
+			)
+		);
 	});
-}
+});
 
 export {};
