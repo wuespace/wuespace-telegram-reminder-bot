@@ -26,11 +26,24 @@ bot.onText(/^\/start/, async (message) => {
 });
 
 if (chatId) {
-	console.log('CHAT_ID found. Chat bot is working now.');
+	console.log(
+		new Date().toISOString(),
+		'CHAT_ID found. Chat bot is working now.'
+	);
 
 	reminders.forEach((reminder, index) => {
-		console.log(`Scheduling reminder #${index} with CRON "${reminder.cron}".`);
+		console.log(
+			new Date().toISOString(),
+			`Scheduling reminder #${index} with CRON "${reminder.cron}".`
+		);
 		cron.schedule(reminder.cron, async () => {
+			console.log(
+				new Date().toISOString(),
+				'Sending message to',
+				chatId,
+				`based on CRON #${index} (${reminder.cron}):`,
+				JSON.stringify(reminder.message)
+			);
 			await bot.sendMessage(chatId, reminder.message, {
 				parse_mode: 'Markdown',
 			});
