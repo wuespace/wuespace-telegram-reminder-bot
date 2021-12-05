@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/wuespace/wuespace-telegram-reminder-bot/compare/v1.2.1...v1.3.0) (2021-12-05)
+
+
+### Features
+
+* Add better logging, including timestamps and log messages when reminders get sent ([7181883](https://github.com/wuespace/wuespace-telegram-reminder-bot/commit/718188329b924dff9bcc3100e52b11bc981d5b0b)), closes [#3](https://github.com/wuespace/wuespace-telegram-reminder-bot/issues/3)
+
 ### [1.2.1](https://github.com/wuespace/wuespace-telegram-reminder-bot/compare/v1.2.0...v1.2.1) (2021-12-04)
 
 ## [1.2.0](https://github.com/wuespace/wuespace-telegram-reminder-bot/compare/v1.1.1...v1.2.0) (2021-12-04)
