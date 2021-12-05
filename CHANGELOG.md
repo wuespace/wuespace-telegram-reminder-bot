@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/wuespace/wuespace-telegram-reminder-bot/compare/v1.3.0...v2.0.0) (2021-12-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* The `CHAT_ID` environment variable in the `.env` file got replaced with a `PR_CHAT_ID` variable.
+
+For non-WüSpace-usages, **don't use the `PR_CHAT_ID` variable!** Instead, define variables that match your own structure (for the different channels that you use) and adjust the `reminders.js` file to use your IDs.
+* `Reminder` objects have an additional, required property `chatIds: string[]` that holds the chat IDs that the bot sends the reminders to.
+
+### Features
+
+* Move chat ID configuration to reminders to allow bot usage in several channels ([55db651](https://github.com/wuespace/wuespace-telegram-reminder-bot/commit/55db651e220f3ee1903ee3c046f3e74a2dcba858)), closes [#2](https://github.com/wuespace/wuespace-telegram-reminder-bot/issues/2)
+
 ## [1.3.0](https://github.com/wuespace/wuespace-telegram-reminder-bot/compare/v1.2.1...v1.3.0) (2021-12-05)
 
 
