@@ -27,7 +27,7 @@
 		"standard-version": "^9.3.2"
 	},
 	"devDependencies": {
-		"@types/node-cron": "^3.0.0",
+		"@types/node-cron": "^3.0.1",
 		"@types/node-telegram-bot-api": "^0.53.4",
 		"prettier": "^2.5.1",
 		"typescript": "^4.5.4"
