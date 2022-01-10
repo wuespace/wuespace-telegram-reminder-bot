@@ -21,7 +21,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"dotenv": "^10.0.0",
-		"forever": "^4.0.1",
+		"forever": "^4.0.2",
 		"node-cron": "^3.0.0",
 		"node-telegram-bot-api": "^0.56.0",
 		"standard-version": "^9.3.2"
