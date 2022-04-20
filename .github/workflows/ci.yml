@@ -1,0 +1,37 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  style:
+    name: Style
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 📥
+        uses: actions/checkout@v3.0.0
+      - name: Setup Node 💿
+        uses: actions/setup-node@v3.0.0
+        with:
+          node-version: 16
+          cache: 'npm'
+
+      - name: Install dependencies 📚
+        run: npm ci --no-audit
+      - name: Check code style 🧽
+        run: npm run style:ci
+  check:
+    name: Check types
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 📥
+        uses: actions/checkout@v3.0.0
+      - name: Setup Node 💿
+        uses: actions/setup-node@v3.0.0
+        with:
+          node-version: 16
+          cache: 'npm'
+
+      - name: Install dependencies 📚
+        run: npm ci --no-audit
+      - name: Check code style 🧽
+        run: npm run check

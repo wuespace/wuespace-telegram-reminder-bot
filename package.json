@@ -10,7 +10,9 @@
 		"deploy:stop": "forever stop index.js",
 		"deploy:restart": "forever restart index.js",
 		"release": "standard-version",
-		"prettier": "prettier --write ."
+		"style": "prettier --write .",
+		"style:ci": "prettier --list-different .",
+		"check": "tsc --noEmit"
 	},
 	"keywords": [],
 	"author": "WüSpace e. V.",
