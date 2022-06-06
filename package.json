@@ -24,7 +24,7 @@
 	"dependencies": {
 		"dotenv": "^16.0.1",
 		"forever": "^4.0.3",
-		"node-cron": "^3.0.0",
+		"node-cron": "^3.0.1",
 		"node-telegram-bot-api": "^0.57.0",
 		"standard-version": "^9.5.0"
 	},
