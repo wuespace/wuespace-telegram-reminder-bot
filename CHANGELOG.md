@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/wuespace/wuespace-telegram-reminder-bot/compare/v2.0.0...v2.1.0) (2022-11-07)
+
+
+### Features
+
+* Add Vorstandsmeeting reminders ([d8162a2](https://github.com/wuespace/wuespace-telegram-reminder-bot/commit/d8162a2697b701d1e423f135f4676f729be863ac))
+
 ## [2.0.0](https://github.com/wuespace/wuespace-telegram-reminder-bot/compare/v1.3.0...v2.0.0) (2021-12-05)
 
 
