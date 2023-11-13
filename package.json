@@ -24,12 +24,12 @@
 	"dependencies": {
 		"dotenv": "^16.0.3",
 		"forever": "^4.0.3",
-		"node-cron": "^3.0.1",
+		"node-cron": "^3.0.3",
 		"node-telegram-bot-api": "^0.61.0",
 		"standard-version": "^9.5.0"
 	},
 	"devDependencies": {
-		"@types/node-cron": "^3.0.2",
+		"@types/node-cron": "^3.0.11",
 		"@types/node-telegram-bot-api": "^0.61.7",
 		"prettier": "^3.0.3",
 		"typescript": "^5.2.2"
