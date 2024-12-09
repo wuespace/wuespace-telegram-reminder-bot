@@ -22,7 +22,7 @@
 	"private": true,
 	"license": "MIT",
 	"dependencies": {
-		"dotenv": "^16.0.3",
+		"dotenv": "^16.4.7",
 		"forever": "^4.0.3",
 		"node-cron": "^3.0.1",
 		"node-telegram-bot-api": "^0.64.0",
