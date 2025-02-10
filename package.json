@@ -31,7 +31,7 @@
 	"devDependencies": {
 		"@types/node-cron": "^3.0.2",
 		"@types/node-telegram-bot-api": "^0.61.7",
-		"prettier": "^3.0.3",
+		"prettier": "^3.5.0",
 		"typescript": "^5.2.2"
 	},
 	"contributors": [
